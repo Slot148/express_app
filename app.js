@@ -23,24 +23,24 @@ app.get('/', (req, res) => {
     res.render('pages/novo_produto', {title: 'Criar Produtos'})
 })
 
-app.post('/', (req, res) => { 
-    requireProductsForm(req)
+app.post('/', async (req, res) => { 
+    await requireProductsForm(req)
     res.redirect('/')
 })
 
-app.get('/ver_produtos', (req, res) => {
-    const data = JSON.parse(fs.readFileSync(root('data/productsDB.json')))
+app.get('/ver_produtos', async (req, res) => {
+    const data = await PRODUCTS_BD_PATH.readDB()
     res.render('pages/ver_produtos', {title: 'Ver Produtos', produtos: data})
 })
 
-app.get('/del_bd', (req, res) => {
-    PRODUCTS_BD_PATH.writeDB([])
+app.get('/del_bd', async (req, res) => {
+    await PRODUCTS_BD_PATH.writeDB([])
     res.redirect('/')
 })
 
-app.get('/del_item/:id', (req, res) => {
+app.get('/del_item/:id', async (req, res) => {
     const {id} = req.params
-    PRODUCTS_BD_PATH.deleteDB(id, 'id')
+    await PRODUCTS_BD_PATH.deleteDB(id, 'id')
     res.redirect('/ver_produtos')
 })
 

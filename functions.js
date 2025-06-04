@@ -12,7 +12,7 @@ async function requireProductsForm(req){
     const image = req.files?.image
     image.mv(root('public/images/' + image.name))
     data.imagePath = '/images/' + image.name
-    PRODUCTS_BD_PATH.addDB(data)
+    await PRODUCTS_BD_PATH.addDB(data)
 }
 
 module.exports = {requireProductsForm, PRODUCTS_BD_PATH}

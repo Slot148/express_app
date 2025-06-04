@@ -1,0 +1,18 @@
+<a href="/ver_produtos">Ver Produtos</a>
+
+<form action="/" method="post" enctype="multipart/form-data">
+    <label for="img">Imagem do Produto</label><br>
+    <input type="file" name="image" id="image"><br>
+    <label for="produto">Produto</label><br>
+    <input type="text" name="produto" id="produto"><br>
+    <label for="preco">Preço</label><br>
+    <input type="number" name="preco" id="preco" step="0.01" min="0"><br>
+    <label for="quantidade">Quantidade</label><br>
+    <input type="number" name="quantidade" id="quantidade"><br>
+    <label for="descricao">Descrição</label><br>
+    <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="enviar">
+    <input type="reset" value="reiniciar">
+</form>
+
+<a href="/del_bd">resetar</a>

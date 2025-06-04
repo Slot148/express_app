@@ -1,0 +1,17 @@
+<a href="/">Criar Produto</a>
+<h2>Produtos</h2>
+<div>
+    <% produtos.forEach(produto => { %>
+        <div>
+            <p>
+                <img src="<%= produto.imagePath %>" alt="imagen do produto" width="100"><br>
+                <strong>ID:</strong> <%=produto.id%><br>
+                <strong>Nome:</strong> <%=produto.produto%><br>
+                <strong>Valor(uni):</strong> R$ <%=produto.preco%><br>
+                <strong>Estoque:</strong> <%=produto.quantidade%> unidades<br>
+                <strong>Descrição:</strong> <%=produto.descricao%><br>
+                <a href="/del_item/<%= produto.id %>">Deletar</a>
+            </p>
+        </div>
+   <% }); %>
+</div>
